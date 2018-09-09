@@ -1812,7 +1812,7 @@
 /* Box */
 
 	.box {
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(0, 0, 0, 0.75);
 		border-radius: 4px;
 		margin-bottom: 2em;
 		overflow: hidden;
@@ -1863,6 +1863,60 @@
 			}
 
 		}
+
+/* Darker Box */
+.drbox {
+	background: rgba(0, 0, 0, 0.875);
+	border-radius: 4px;
+	margin-bottom: 2em;
+	overflow: hidden;
+	padding: 4em;
+}
+
+	.drbox > :last-child,
+	.drbox > :last-child > :last-child,
+	.drbox > :last-child > :last-child > :last-child {
+		margin-bottom: 0;
+	}
+
+	.drbox header h2 {
+		margin: 0 0 .5em 0;
+		color: #FFF;
+	}
+
+	.drbox header p {
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.drbox.alt {
+		border: 0;
+		border-radius: 0;
+		padding: 0;
+	}
+
+	@media screen and (max-width: 980px) {
+
+		.drbox {
+			padding: 3em;
+		}
+
+	}
+
+	@media screen and (max-width: 736px) {
+
+		.drbox {
+			padding: 2em;
+		}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		.drbox {
+			padding: 1em;
+		}
+
+	}
 
 /* Button */
 
@@ -2518,6 +2572,19 @@
 			float: right;
 			margin: 0 0 1em 1.5em;
 			top: 0.25em;
+		}
+
+		.image.largeright {
+			float: right;
+			margin: 0 0 1em 1.5em;
+			top: 0.25em;
+		}
+		.image.largeright {
+			max-width: 60%;
+		}
+
+		.image.largeright img {
+			width: 100%;
 		}
 
 		.image.fit {
@@ -3338,7 +3405,7 @@
 
 		#header.alt {
 			top: 0;
-			background: #F64747;
+			background: #0F2030; /* #F64747; /*/
 		}
 
 		#header .logo {
