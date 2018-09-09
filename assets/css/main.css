@@ -2587,6 +2587,19 @@
 			width: 100%;
 		}
 
+		.image.largeleft {
+			float: left;
+			margin: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+		.image.largeleft {
+			max-width: 60%;
+		}
+
+		.image.largeleft img {
+			width: 100%;
+		}
+
 		.image.fit {
 			display: block;
 			margin: 0 0 2em 0;

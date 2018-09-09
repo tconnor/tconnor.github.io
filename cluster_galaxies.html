@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<!--
+	Road Trip by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Galaxies in Clusters</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="research.html">Research <span> Galaxies in Clusters</span></a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+      <!-- Nav -->
+  			<nav id="menu">
+  				<ul class="links">
+  					<li><a href="index.html">Home</a></li>
+  					<li><a href="cv.html">CV</a></li>
+  					<li><a href="research.html">Research</a></li>
+  					<li><a href="contact.html">Contact</a></li>
+
+  				</ul>
+  			</nav>
+
+		<!-- Content -->
+		<!--
+			Note: To show a background image, set the "data-bg" attribute below
+			to the full filename of your image. This is used in each section to set
+			the background image.
+		-->
+			<section id="post" class="wrapper bg-img" data-bg="CLASH_bkg_image.jpg">
+				<div class="inner" >
+					<article class="drbox">
+						<header>
+							<h2>Peering Into the Hearts of Galaxy Clusters</h2>
+              <h6><i>Relevant Works:</i>
+								<a href="https://ui.adsabs.harvard.edu/#abs/2017ApJ...848...37C">Connor
+									 et al. 2017</a>, Connor et al. 2018 (in prep)</h6>
+						</header>
+						<div class="content">
+							<p> If you want to study the evolution of galaxies, it's tough
+							to beat galaxy clusters. Not only are there significantly more
+						  galaxies to study in a given area of the sky (compared to thead
+							field), but there are so many parameters to vary that one
+						  dataset can be used for many kinds of science. The problem is
+						  that clusters are crowded environments, so it is a challenging
+						  task to isolate light from one specfic galaxy. And, unlike star
+						  clusters, these galaxies are extended structures, so even with
+						  larger telescopes and greater resolution, these challenges
+						  will remain. </p>
+
+							<p>The Cluster Lensing and Supernova survey with Hubble (
+								<a href="http://www.stsci.edu/~postman/CLASH/Home.html">CLASH</a>,
+								<a href="https://ui.adsabs.harvard.edu/#abs/2012ApJS..199...25P">Postman
+									et al., 2012</a>) was a survey with the <i>Hubble Space Telescope</i>
+									that observed 25 galaxy clusters, 0.2 &le; z &le; 0.9, with
+									16 filters, from the UV to the IR. The dataset, especially when
+									combined with supplemental observations from ground-based facilities
+									and at multiple wavelengths, is one of the best available for
+									studying galaxy clusters. However, the default data products
+									were not good enough to study the populations of cluster galaxies.
+									In addition to detection catalogs that didn't prioritize cluster
+									science, the photometry was not intelligently handling overlapping
+									light profiles from galaxies. For those of us who wanted to use
+									the CLASH data to study galaxies, something needed to be done.
+							</p>
+
+							<p>First is the challenge of getting a detection catalog that finds
+							   what you want. The default catalog broke small galaxies apart to try
+						     to find lensed galaxies. Being less aggressive with source separation
+						     led to grouping nearby small galaxies together. The Source Extractor
+						     by itself was not going to solve this problem, so we came up with
+						     a new technique. Each galaxy exists in a background of light; for small
+					    	 galaxies, that background might be the larger galaxies that are
+							   spatially coincident. By subtracting a scale-appropriate background,
+							   we could generate images where small galaxies could be seen independent
+							   of their larger neighbors. By generating multiple images, each with their
+							   own background scale, we could detect large and small galaxies from
+							   the same image. </p>
+
+              <p> <span class="image largeright"><img src="images\atrous_clash.jpg" alt="" /></span>
+							An example of this process is seen in the image to the right. In the top panels,
+						  we subtracted off local backgrounds, where the background region is determined
+						  in progressively smaller sizes (from left to right). At large sizes, big galaxies
+						  are relatively untouched, while, at small sizes, the small galaxies appear on their
+					    own. This is similar to <i>&agrave; trous</i> transforms, except the dual is
+						  not uniform across the field (so you cannot add them up to get the original image).
+						  Importantly, we took the difference of these images, shown in the bottom panels.
+						  With this step, visible structure corresponds to the full extents of galaxies at those
+						  scales. While we used more scales than the three shown here in the actual work, the method
+						  nevertheless demonstrates the ability of this technique to let us detect the full sizes
+						  of galaxies, even when they overlap. </p>
+
+              <p><span class="image left"><img src="images\detection_of_galaxies.jpg" alt="" /></span>
+							 Having made a good detection catalog, the next step is to use that
+						   to get good photometry. The total light of a galaxy is contained in
+						   a set of pixels; the value of those pixels is the light of the galaxy
+						   plus the light of everything else. There are two ways, then, to go about
+						   measuring the lights of galaxies -- assume you know the light of the galaxy,
+						   or assume you know the light of everything else. The first type includes
+						   parametric models of galaxy light profiles, while the latter is
+						   focused on excellent background estimation. There's an inherent
+						   bias when you want to do galaxy science using colors from modeled
+						   light profiles, so we opted for option 2.   </p>
+
+              <p><span class="image right"><img src="images\depeche_explained.jpg" alt="" /></span>
+								Our background estimation technique has a simple premise: the background
+							  light for a pixel at the edge of a galaxy should be consistent with
+							  the light of all the background pixels outside the galaxy. And,
+							  since the background region can have other sources of light in it,
+							  the best measurement of the "true" background is the mode. Finding
+							  the mode for all but the simplest sets of data is inherently complicated,
+							  and the precision of pixel values makes this even more difficult. Our
+							  insight is that each pixel has a variance -- each time the background
+							  was sampled during imaging, it was drawn from a background probability
+								distribution, and the variance on the same pixel is similar to the
+								expectated variance of the background. So take all the background pixels,
+								convolve them each with a unique Gaussian that has a variance equal to that pixel's
+								variance, and sum the distribution. The mode is the peak of that distribution.
+								This is shown on the right image; the left panel shows the nominal flux
+								values for a set of ordered pixels, and the spread is their variances.
+								Collapse that down, and you get the distribution on the right. The mean,
+								median, and other estimates of the mode are shown, but the TRUE mode is
+								found by our technique.
+							  </p>
+
+								<p><span class="image largeleft"><img src="images\depeche_in_action.jpg" alt="" /></span>
+								Finally, we apply this background estimation technique to our galaxies.
+								Starting from the outside and working in, we compute a local background
+								for each pixel. In doing so, we also capture the variance of the
+								distribution, so that we can replace each pixel with its background
+								value and variance. Then, this pixel can be used to estimate the
+								background of inner pixels as we work our way in. The process is
+								shown in the figure to the left. Galaxies are replaced from smallest
+								to largest, leaving the background light seen in the middle panel.
+								While this has a glassy appearance due to being near noisy background,
+								when we resample each pixel based on their variances, the extracted
+								galaxies have disappeared into the background light.
+								</p>
+
+              <p> From this, we were able to assemble a fantastic catalog of cluster
+								galaxies for CLASH. In addition to the science presented in the
+								catalog paper, it has already been used by
+								<a href="https://ui.adsabs.harvard.edu/#abs/2017ApJ...849...59B/abstract">Burke-Spolaor
+								et al. (2017)</a> and
+								<a href="https://ui.adsabs.harvard.edu/#abs/2018MNRAS.474.3009D/abstract">DeMaio
+								et al. (2018) </a>. There's also some further work being done by
+								our team, but those results are still not out yet. 
+							</p>
+          <br></br>
+						</div>
+						<footer>
+							<ul class="actions">
+                <li><a href="cosmic_web.html" class="button alt icon fa-chevron-left">
+                  <span class="label">Seeing the Cosmic Web in X-rays</span></a></li>
+								<!-- <li><a href="groups_to_clusters.html" class="button alt icon fa-chevron-left">
+                  <span class="label">Transitioning from Groups to Clusters</span></a></li> -->
+								<li><a href="generic.html" class="button alt icon fa-chevron-right">
+                  <span class="label">Star Formation in Brightest Cluster Galaxies</span></a></li>
+							</ul>
+						</footer>
+					</article>
+				</div>
+			</section>
+
+		<!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+
+        <!-- <h2>Contact Me</h2>
+
+        <form action="#" method="post">
+
+          <div class="field half first">
+            <label for="name">Name</label>
+            <input name="name" id="name" type="text" placeholder="Name">
+          </div>
+          <div class="field half">
+            <label for="email">Email</label>
+            <input name="email" id="email" type="email" placeholder="Email">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+          </div>
+          <ul class="actions">
+            <li><input value="Send Message" class="button alt" type="submit"></li>
+          </ul>
+        </form> -->
+
+        <ul class="icons">
+          <li><a href="https://twitter.com/Thomas_Connor" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/tconnor/" class="icon round fa-github"><span class="label">Github</span></a></li>
+          <li><a href="https://ui.adsabs.harvard.edu/#search/q=orcid%3A0000-0002-7898-7664&sort=date%20desc%2C%20bibcode%20desc&p_=0"
+             class="icon round fa-star"><span class="label">ADS</span></a></li>
+          <li><a href="https://scholar.google.com/citations?user=avKFS_kAAAAJ"
+               class="icon round fa-flask"><span class="label">Google Scholar</span></a></li>
+        </ul>
+
+        <div class="copyright">
+          &copy; Thomas Connor. Design: <a href="https://templated.co">TEMPLATED</a>, with modifications by Thomas Connor.</br>
+          Image: <a href="http://hubblesite.org/image/4053/news">NASA, ESA, M. Postman (STScI), and the CLASH team</a>.
+        </div>
+
+      </div>
+    </footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
